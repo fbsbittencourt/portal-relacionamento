@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block 'menu-solicitations' %}<li class="active">{% endblock %}
+
+{% block 'content' %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Solicitações <small>{{ company.fancy_name }}</small></h1>
+        <ol class="breadcrumb">
+            <li class="active"><i class="icon-dashboard"></i> Solicitações</li>
+        </ol>
+        <p class="pull-right">
+            <a title="Adicionar Solicitação" class="btn btn-success" href="{% url 'core:solicitation-add' %}">Adicionar Solicitação</a>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped tablesorter">
+                <thead>
+                    <tr>
+                        <th>DT Abertura</th>
+                        <th>Solicitação</th>
+                        <th>Atendente</th>
+                        <th>Progresso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for incident in incidents %}
+                    <tr>
+                        <td>{{ incident.date_open|date:'d/m/Y' }}</td>
+                        <td>{{ incident.title }}</td>
+                        <td>{{ incident.responsible }}</td>
+                        <td>
+                            <div class="progress progress-striped">
+                                <div style="width: {{ incident.progress }}%" class="progress-bar progress-bar-info">{{ incident.progress }}%</div>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock 'content' %}
+
+{% block 'extra-scripts' %}
+
+<script src="{{ STATIC_URL }}js/tablesorter/jquery.tablesorter.js"></script>
+<script src="{{ STATIC_URL }}js/tablesorter/tables.js"></script>
+
+{% endblock 'extra-scripts' %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load bootstrap3 %}
+
+{% block 'content' %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1>{{ company.fancy_name }} <small>Configurações</small></h1>
+        <ol class="breadcrumb">
+            <li class="active"><i class="icon-gear"></i> Configurações</li>
+        </ol>
+        <div class="alert alert-info alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              Mantenha os dados cadastrais da sua empresa atualizados.
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+
+        <h3>Dados da Empresa</h3>
+        <hr>
+
+        <p><span class="align120"><strong>Razão Social:</strong></span> {{ company.name }}</p>
+        <p><span class="align120"><strong>Nome Fantasia:</strong></span> {{ company.fancy_name }}</p>
+        <p><span class="align120"><strong>CNPJ:</strong></span> {{ company.cnpj }}</p>
+        <p><span class="align120"><strong>E-mail:</strong></span> {{ company.email }}</p>
+        <p><span class="align120"><strong>Telefone:</strong></span> {{ company.phone }}</p>
+
+        <h3>Endereço</h3>
+        <hr>
+
+        <p><span class="align120"><strong>Rua:</strong></span> {{ company.street }} - {{ company.number }} / Complemento: {{ company.complement }}</p>
+        <p><span class="align120"><strong>Bairro:</strong></span> {{ company.neighborhood }}</p>
+        <p><span class="align120"><strong>Cidade:</strong></span> {{ company.city }}</p>
+
+        <h3>Networking</h3>
+        <hr>
+
+        <p><span class="align120"><strong>Facebook:</strong></span> {{ company.facebook }}</p>
+        <p><span class="align120"><strong>Twitter:</strong></span> {{ company.twitter }}</p>
+        <p><span class="align120"><strong>LinkedIn:</strong></span> {{ company.linkedin }}</p>
+
+    </div>
+</div>
+
+{% endblock 'content' %}

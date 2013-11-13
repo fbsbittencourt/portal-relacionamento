@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load thumbnail %}
+
+{% block 'menu-dashboard' %}<li class="active">{% endblock %}
+
+{% block 'content' %}
+
+<div class="col-lg-12">
+    <h1>Dashboard <small>{{ company.fancy_name }}</small></h1>
+    <ol class="breadcrumb">
+        <li class="active"><i class="icon-dashboard"></i> Dashboard</li>
+    </ol>
+</div>
+
+{% endblock %}
+
+{% block 'extra-scripts' %}{% endblock 'extra-scripts' %}

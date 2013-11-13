@@ -1,0 +1,66 @@
+{% load bootstrap3 %}
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Painel Administrativo - MR2</title>
+    {% bootstrap_css %}
+    <style>
+        body {
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'core:home' %}"><img src="{{ STATIC_URL }}img/MR2_Digital.png" alt="MR2 Digital"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="{% url 'core:home' %}"><span class="glyphicon glyphicon-home"></span></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'core:solicitations' %}"><span class="glyphicon glyphicon-wrench"></span></a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="glyphicon glyphicon-user"></span> {{ request.user.username }} <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'core:logout' %}">Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        {% block 'content' %}{% endblock %}
+        <hr>
+        <footer>
+            <p>&copy; MR2 Digital | 2013 - Painel versão 1.0</p>
+      </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    {% bootstrap_javascript %}
+    {% block 'extra-scripts' %}{% endblock %}
+</body>
+
+</html>
+

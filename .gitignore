@@ -1,0 +1,21 @@
+/bin/
+/build/
+/include/
+/lib/
+/man/
+/share/
+.Python
+*.pyc
+*.db
+*~
+*.swp
+
+# Settings Local
+mr2digital/settings_local.py
+
+
+# Media Files
+/media/
+
+# Static Files
+/static/
