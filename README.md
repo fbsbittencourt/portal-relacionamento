@@ -1,6 +1,14 @@
 # Sistema de suporte para empresas de TI
 ---
 
+Originalmente esse sistema foi desenvolvimento por mim para uso na [MR2 Digital](http://www.mr2digital.com.br), mas se alguém tiver interesse em colaborar ou usar o mesmo.
+
+---
+
+Se tiver interesse pode apenas usar a app core para instalar no seu projeto.
+
+---
+
 O sistema de suporte com atualmente as seguintes funcionalidades:
 
 * Cadastro de funcionários
