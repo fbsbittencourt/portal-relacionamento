@@ -8,7 +8,7 @@
     <div class="col-lg-12">
         <h1>Solicitações <small>{{ company.fancy_name }}</small></h1>
         <ol class="breadcrumb">
-            <li class="active"><i class="icon-dashboard"></i> Solicitações</li>
+            <li class="active"><i class="icon-wrench"></i> Solicitações</li>
         </ol>
         <p class="pull-right">
             <a title="Adicionar Solicitação" class="btn btn-success" href="{% url 'core:solicitation-add' %}">Adicionar Solicitação</a>
@@ -32,7 +32,7 @@
                     {% for incident in incidents %}
                     <tr>
                         <td>{{ incident.date_open|date:'d/m/Y' }}</td>
-                        <td>{{ incident.title }}</td>
+                        <td><a href="{% url 'core:solicitation-view' incident.pk %}">{{ incident.title }}</a></td>
                         <td>{{ incident.responsible }}</td>
                         <td>
                             <div class="progress progress-striped">

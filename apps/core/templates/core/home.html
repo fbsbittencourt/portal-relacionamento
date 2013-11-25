@@ -6,11 +6,52 @@
 
 {% block 'content' %}
 
-<div class="col-lg-12">
-    <h1>Dashboard <small>{{ company.fancy_name }}</small></h1>
-    <ol class="breadcrumb">
-        <li class="active"><i class="icon-dashboard"></i> Dashboard</li>
-    </ol>
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Dashboard <small>{{ company.fancy_name }}</small></h1>
+        <ol class="breadcrumb">
+            <li class="active"><i class="icon-dashboard"></i> Dashboard</li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="alert alert-success alert-dismissable">
+            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+            Bem-vindo ao painel de relacionamento da Beagle Ship.
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3">
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <i class="icon-wrench icon-5x"></i>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <p class="announcement-heading">{{ solicitations }}</p>
+                        <p class="announcement-text">Solicitações (Abertas)</p>
+                    </div>
+                </div>
+            </div>
+            <a href="{% url 'core:solicitations' %}">
+                <div class="panel-footer announcement-bottom">
+                    <div class="row">
+                        <div class="col-xs-6">Detalhes</div>
+                        <div class="col-xs-6 text-right">
+                            <i class="icon-circle-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
 </div>
 
 {% endblock %}

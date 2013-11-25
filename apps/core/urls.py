@@ -8,6 +8,7 @@ urlpatterns = patterns(
     url(r'home/$', 'home', name='home'),
     url(r'^solicitacoes/$', 'solicitations', name='solicitations'),
     url(r'^solicitacoes/add/$', 'solicitation_add', name='solicitation-add'),
+    url(r'^solicitacoes/view/(?P<solicitation_id>[\d]+)$', 'solicitation_view', name='solicitation-view'),
     url(r'^configuracoes/', 'settings', name='settings'),
 )
 
@@ -20,4 +21,5 @@ urlpatterns += patterns(
 
     # logout view
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/home'}, name='logout'),
+
 )

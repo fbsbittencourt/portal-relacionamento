@@ -106,6 +106,8 @@ class CompanyAdmin(admin.ModelAdmin):
 
 class IncidentAdmin(admin.ModelAdmin):
 
+    list_filter = ['company', 'responsible']
+
     inlines = [TreatmentInline]
 
     list_display = (

@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from models import Company, Incident
 from forms import IncidentForm
@@ -12,6 +12,7 @@ def home(request):
     Dashboard
     '''
     company = Company.objects.get(users__pk=request.user.pk)
+    solicitations = Incident.objects.filter(company=company.pk, progress__lt=100).count()
     return render(request, 'core/home.html', locals())
 
 
@@ -46,6 +47,17 @@ def solicitation_add(request):
     return render(request, 'core/solicitation_add.html', {
         'form': form
     })
+
+
+@login_required
+def solicitation_view(request, solicitation_id):
+    '''
+    Mostra os detalhes da solicitação
+    '''
+
+    solicitation = get_object_or_404(Incident, pk=solicitation_id)
+
+    return render(request, 'core/solicitation_view.html', locals())
 
 
 @login_required
